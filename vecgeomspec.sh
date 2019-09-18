@@ -1,4 +1,4 @@
-package: VecGeom
+package: VecGeomSpec
 version: "%(tag_basename)s"
 tag: master
 source: https://gitlab.cern.ch/VecGeom/VecGeom.git
@@ -14,6 +14,7 @@ build_requires:
 cmake $SOURCEDIR -DCMAKE_INSTALL_PREFIX=$INSTALLROOT -DROOT=ON  \
           -DBACKEND=Vc                                          \
           -DVECGEOM_VECTOR=avx                                  \
+          -DNO_SPECIALIZATION=OFF                               \
           -DBENCHMARK=OFF                                       \
           ${CXXSTD:+-DCMAKE_CXX_STANDARD=$CXXSTD}               \
           -DCMAKE_EXPORT_COMPILE_COMMANDS=ON

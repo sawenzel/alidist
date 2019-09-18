@@ -50,6 +50,7 @@ cmake $SOURCEDIR                                             \
   -DGEANT4_INSTALL_DATA=ON                                   \
   -DGEANT4_USE_SYSTEM_EXPAT=OFF                              \
   ${CXXSTD:+-DCMAKE_CXX_STANDARD=$CXXSTD}                    \
+  -DGEANT4_USE_GDML=ON                                       \
   -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
 
 make ${JOBS+-j $JOBS}
