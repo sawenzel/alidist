@@ -5,6 +5,7 @@ source: https://gitlab.cern.ch/VecGeom/VecGeom.git
 requires:
   - "GCC-Toolchain:(?!osx)"
   - "Vc"
+  - embree
   - ROOT
 build_requires:
   - CMake
@@ -15,6 +16,7 @@ cmake $SOURCEDIR -DCMAKE_INSTALL_PREFIX=$INSTALLROOT -DROOT=ON  \
           -DBACKEND=Vc                                          \
           -DVECGEOM_VECTOR=avx                                  \
           -DBENCHMARK=OFF                                       \
+	  -DEMBREE=ON -Dembree_DIR=${EMBREE_ROOT}               \
           ${CXXSTD:+-DCMAKE_CXX_STANDARD=$CXXSTD}               \
           -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
 

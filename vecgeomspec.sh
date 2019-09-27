@@ -6,6 +6,7 @@ requires:
   - "GCC-Toolchain:(?!osx)"
   - "Vc"
   - ROOT
+  - embree
 build_requires:
   - CMake
 ---
@@ -13,8 +14,9 @@ build_requires:
 #!/bin/bash -e
 cmake $SOURCEDIR -DCMAKE_INSTALL_PREFIX=$INSTALLROOT -DROOT=ON  \
           -DBACKEND=Vc                                          \
-          -DVECGEOM_VECTOR=avx                                  \
+          -DVECGEOM_VECTOR=sse4.2                               \
           -DNO_SPECIALIZATION=OFF                               \
+	  -DEMBREE=ON -Dembree_DIR=${EMBREE_ROOT}               \
           -DBENCHMARK=OFF                                       \
           ${CXXSTD:+-DCMAKE_CXX_STANDARD=$CXXSTD}               \
           -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
