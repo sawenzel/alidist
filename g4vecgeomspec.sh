@@ -12,8 +12,9 @@ build_requires:
   - CMake
 env:                                                                                                                              
   G4VECGEOM_ROOT: "$G4VECGEOMSPEC_ROOT" 
----
-
+  ---
+  
+#CXXFLAGS="$CXXFLAGS -mavx"
 #!/bin/bash -e
 cmake $SOURCEDIR/g4vecgeom -DCMAKE_INSTALL_PREFIX=$INSTALLROOT ${CXXSTD:+-DCMAKE_CXX_STANDARD=$CXXSTD}               \
           -DVecGeom_DIR=${VECGEOMSPEC_ROOT}/lib/cmake/VecGeom -DCMAKE_EXPORT_COMPILE_COMMANDS=ON --trace -DCMAKE_BUILD_TYPE=Release
