@@ -1,6 +1,6 @@
 package: VecGeom
 version: "%(tag_basename)s"
-tag: "v1.1.10"
+tag: "v1.1.20"
 source: https://gitlab.cern.ch/VecGeom/VecGeom.git
 requires:
   - "GCC-Toolchain:(?!osx)"
@@ -23,6 +23,7 @@ case $ARCHITECTURE in
               -DBUILD_TESTING=OFF                                       \
               -DVALIDATION=OFF                                          \
 	      ${CXXSTD:+-DCMAKE_CXX_STANDARD=$CXXSTD}                   \
+              -DBUILTIN_VECCORE=ON                                      \
 	      -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
 	;;
     *)
@@ -35,6 +36,7 @@ case $ARCHITECTURE in
               -DVALIDATION=OFF                                          \
               -GNinja                                                   \
 	      ${CXXSTD:+-DCMAKE_CXX_STANDARD=$CXXSTD}                   \
+              -DBUILTIN_VECCORE=ON                                      \
 	      -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
 	;;
 esac
