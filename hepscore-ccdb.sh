@@ -1,5 +1,5 @@
 package: HEPscore-CCDB
-version: v0.1.3-coredigireco-snapshot
+version: v0.1.4-coredigireco-snapshot
 build_requires:
   - xjalienfs
   - alibuild-recipe-tools
