@@ -11,6 +11,7 @@ build_requires:
 export ROOT_INCLUDE_PATH=${ROOT_INCLUDE_PATH}:${PYTHIA_ROOT}/include
 # this is to access tokens and alien
 export PYTHONPATH=${PYTHONPATH}:${XJALIENFS_ROOT}/lib/python/site-packages
+export PATH=${PATH}:${XJALIENFS_ROOT}/bin
 
 alien-token-info
 RC=$?
@@ -20,7 +21,6 @@ if [ "${RC}" != "0" ]; then
  export X509_USER_CERT=/etc/grid-security/hostcert.pem 
  export X509_USER_KEY=/etc/grid-security/hostkey.pem 
  export X509_CERT_DIR=/etc/grid-security/certificates
- export PATH=${PATH}:${XJALIENFS_ROOT}/bin
 fi
 
 env | tr ":" "\n" > runenv.log
