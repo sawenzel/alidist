@@ -13,6 +13,7 @@ export ROOT_INCLUDE_PATH=${ROOT_INCLUDE_PATH}:${PYTHIA_ROOT}/include
 export PYTHONPATH=${PYTHONPATH}:${XJALIENFS_ROOT}/lib/python/site-packages
 export PATH=${PATH}:${XJALIENFS_ROOT}/bin
 
+echo "Trying token"
 alien-token-info
 RC=$?
 
