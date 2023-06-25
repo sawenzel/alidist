@@ -14,8 +14,8 @@ export PYTHONPATH=${PYTHONPATH}:${XJALIENFS_ROOT}/lib/python/site-packages
 export PATH=${PATH}:${XJALIENFS_ROOT}/bin
 
 echo "Trying token"
-alien-token-info
-RC=$?
+#alien-token-info
+RC=1
 
 if [ "${RC}" != "0" ]; then
  # this is for JENKINS usage (to pick up GRID certificate)
