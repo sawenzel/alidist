@@ -1,5 +1,5 @@
 package: HEPscore-CCDB
-version: v0.1.5-coredigireco-snapshot-compatible-20221215
+version: v0.1.5-coredigireco-snapshot-compatible-20221215_v2
 build_requires:
   - xjalienfs
   - alibuild-recipe-tools
@@ -26,7 +26,7 @@ alien-token-info || true
 
 # get the precreated snapshot
 # (containing all input files for benchmark, including CCDB snapshot)
-alien.py cp /alice/cern.ch/user/a/aliperf/HEPscore/hepscore_checkpoint_20221215.tar.gz file:./hepscore_checkpoint.tar.gz
+alien.py cp /alice/cern.ch/user/a/aliperf/HEPscore/hepscore_checkpoint_20221215_v2.tar.gz file:./hepscore_checkpoint.tar.gz
 
 # install artefacts
 rsync -a --delete hepscore_checkpoint.tar.gz $INSTALLROOT
