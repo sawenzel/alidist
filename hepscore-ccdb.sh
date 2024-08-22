@@ -1,5 +1,5 @@
 package: HEPscore-CCDB
-version: alice3-lut-v0.0.2
+version: alice3-lut-v0.0.3
 build_requires:
   - xjalienfs
   - alibuild-recipe-tools
