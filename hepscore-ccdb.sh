@@ -1,5 +1,5 @@
 package: HEPscore-CCDB
-version: alice3-lut-v0.0.3
+version: alice3-lut-v0.0.4
 build_requires:
   - xjalienfs
   - alibuild-recipe-tools
@@ -30,11 +30,13 @@ env | tr ":" "\n" > runenv.log
 alien-token-info || true
 
 # get the precreated data
-alien.py cp /alice/cern.ch/user/d/ddobrigk/LUT/* file:./ALICE3-FASTSIM-LUT
+alien.py cp -parent 1 /alice/cern.ch/user/d/ddobrigk/LUT/v2default/* file:./ALICE3-FASTSIM-LUT
+alien.py cp -parent 1 /alice/cern.ch/user/d/ddobrigk/LUT/v2wide/* file:./ALICE3-FASTSIM-LUT
+alien.py cp -parent 1 /alice/cern.ch/user/d/ddobrigk/LUT/v2large/* file:./ALICE3-FASTSIM-LUT
 
 # install artefacts
 rsync -a --delete * $INSTALLROOT
-echo "Data files  (Delphes lookup tables) for ALICE3 R&D studies" >> $INSTALLROOT/README.txt
+echo "Data files (Delphes lookup tables) for ALICE3 R&D studies" >> $INSTALLROOT/README.txt
 
 # Modulefile --> not needed
 mkdir -p $INSTALLROOT/etc/modulefiles
