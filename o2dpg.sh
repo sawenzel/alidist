@@ -1,7 +1,7 @@
 package: O2DPG
 version: "%(tag_basename)s"
 tag: "master"
-source: https://github.com/sawenzel/O2DPG.git
+source: https://github.com/AliceO2Group/O2DPG.git
 build_requires:
   - alibuild-recipe-tools
 incremental_recipe: |
