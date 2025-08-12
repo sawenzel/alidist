@@ -35,8 +35,8 @@ if [[ ! $? -eq 0 ]]; then
   exit 1
 fi
 
-git clone https://github.com/AliceO2Group/O2DPG O2DPG
-export O2DPG_ROOT=${PWD}/O2DPG
+#git clone https://github.com/AliceO2Group/O2DPG O2DPG
+#export O2DPG_ROOT=${PWD}/O2DPG
 
 # With this we simply call the testing scripts of O2DPG for this purpose:
 rsync -av ${O2DPG_ROOT}/MC/run/ANCHOR/tests/ ./
