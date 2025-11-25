@@ -5,7 +5,6 @@ requires:
   # List important packages separately, even though they're also
   # pulled in by O2sim, so they show up in the dependency list on Monalisa.
   - O2
-  - O2Physics
   - "DataDistribution:(?!osx|slc9_aarch64)"
   - QualityControl
   - O2DPG

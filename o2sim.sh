@@ -1,11 +1,9 @@
 package: O2sim
 version: "v%(year)s%(month)s%(day)s"
 requires:
-  - O2Physics
+  - O2
   - O2DPG
-  - QualityControl
   - AEGIS
-  - AliGenO2:(?!osx)
   - jq
 ---
 #!/bin/bash -ex
