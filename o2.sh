@@ -1,6 +1,6 @@
 package: O2
 version: "%(tag_basename)s"
-tag: "133c2ec"
+tag: "297aa69"
 requires:
   - abseil
   - arrow
