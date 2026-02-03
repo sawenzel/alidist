@@ -40,5 +40,7 @@ fi
 
 # With this we simply call the testing scripts of O2DPG for this purpose:
 rsync -av ${O2DPG_ROOT}/MC/run/ANCHOR/tests/ ./
+export PRODSPLIT=6
+export TTL=7200
 ./test_looper.sh ${MC_2STAGE_TEST_TAG}
 
