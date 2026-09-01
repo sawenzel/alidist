@@ -5,6 +5,7 @@ license: curl
 source: https://github.com/curl/curl.git
 prepend_path:
   PKG_CONFIG_PATH: "$CURL_ROOT/lib/pkgconfig"
+  ROOT_INCLUDE_PATH: "$CURL_ROOT/include"
 build_requires:
   - "OpenSSL:(?!osx)"
   - alibuild-recipe-tools
