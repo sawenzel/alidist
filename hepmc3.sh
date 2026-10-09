@@ -4,21 +4,17 @@ tag: 3.3.1
 source: https://gitlab.cern.ch/hepmc/HepMC3.git
 requires:
   - GCC-Toolchain:(?!osx.*)
-  - ROOT
 license: GPL-3.0
 build_requires:
   - CMake
-prepend_path:
-  ROOT_INCLUDE_PATH: "$HEPMC3_ROOT/include"
 ---
 #!/bin/bash -e
 
 cmake  $SOURCEDIR                          \
-       -DROOT_DIR=$ROOT_ROOT               \
        -DCMAKE_INSTALL_PREFIX=$INSTALLROOT \
        -DCMAKE_INSTALL_LIBDIR=lib          \
        -DHEPMC3_ENABLE_PYTHON=OFF          \
-       -DHEPMC3_ENABLE_ROOTIO=ON
+       -DHEPMC3_ENABLE_ROOTIO=OFF
 
 make ${JOBS+-j $JOBS}
 make install

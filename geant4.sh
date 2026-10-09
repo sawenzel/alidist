@@ -21,7 +21,7 @@ env:
   G4INSTALL: $GEANT4_ROOT
 ---
 # If this variable is not defined default it to OFF
-: ${GEANT4_BUILD_MULTITHREADED:=OFF}
+: ${GEANT4_BUILD_MULTITHREADED:=ON}
 
 # Data sets directory:
 # if not set (default), data sets will be installed in CMAKE_INSTALL_DATAROOTDIR
@@ -38,7 +38,7 @@ cmake $SOURCEDIR                                                \
   -DBUILD_SHARED_LIBS=ON                                        \
   -DGEANT4_INSTALL_EXAMPLES=OFF                                 \
   -DCLHEP_ROOT_DIR:PATH="$CLHEP_ROOT"                           \
-  -DGEANT4_BUILD_MULTITHREADED="$GEANT4_BUILD_MULTITHREADED"    \
+  -DGEANT4_BUILD_MULTITHREADED=ON                                  \
   -DCMAKE_STATIC_LIBRARY_CXX_FLAGS="-fPIC"                      \
   -DCMAKE_STATIC_LIBRARY_C_FLAGS="-fPIC"                        \
   -DGEANT4_USE_G3TOG4=ON                                        \
