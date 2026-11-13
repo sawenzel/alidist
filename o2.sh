@@ -1,6 +1,6 @@
 package: O2
 version: "%(tag_basename)s"
-tag: "daily-20261113-0000"
+tag: "daily-20261113-0000-g4hepem1"
 requires:
   - abseil
   - arrow
@@ -53,7 +53,7 @@ build_requires:
   - googlebenchmark
   - O2-customization
   - Clang:(?!osx*)
-source: https://github.com/AliceO2Group/AliceO2
+source: https://github.com/sawenzel/AliceO2
 env:
   VMCWORKDIR: "$O2_ROOT/share"
 prepend_path:

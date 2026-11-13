@@ -1,6 +1,6 @@
 package: G4HepEm
 version: "%(tag_basename)s"
-tag: per-region-tracking-cuts-r3
+tag: 20261106-alice1
 source: https://github.com/sawenzel/g4hepem
 requires:
   - GEANT4
