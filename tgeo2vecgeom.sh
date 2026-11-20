@@ -13,7 +13,40 @@ build_requires:
 ---
 #!/bin/bash -e
 
-cmake $SOURCEDIR -DCMAKE_INSTALL_PREFIX=$INSTALLROOT      \
+# A CUDA-enabled VecGeom makes the GPU copy interface of VUnplacedVolume pure virtual;
+# give UnplacedRootVolume the same stubs PlacedRootVolume already has. Patched in a copy.
+rsync -a --exclude .git "$SOURCEDIR/" ./src/
+patch -p1 -d ./src <<'EOP'
+diff --git a/include/UnplacedRootVolume.h b/include/UnplacedRootVolume.h
+index 259cf9e..0ee50f9 100644
+--- a/include/UnplacedRootVolume.h
++++ b/include/UnplacedRootVolume.h
+@@ -95,6 +95,22 @@ private:
+                                            const TranslationCode trans_code, const RotationCode rot_code,
+ #endif
+                                            VPlacedVolume *const placement = NULL) const override;
++
++#ifdef VECGEOM_CUDA_INTERFACE
++public:
++  // A ROOT shape has no device implementation; the stubs only satisfy a CUDA-enabled VecGeom.
++  size_t DeviceSizeOf() const override { return 0; }
++  DevicePtr<cuda::VUnplacedVolume> CopyToGpu() const override
++  {
++    assert(0 && "Attempted to copy unsupported ROOT volume to GPU.");
++    return DevicePtr<cuda::VUnplacedVolume>(nullptr);
++  }
++  DevicePtr<cuda::VUnplacedVolume> CopyToGpu(DevicePtr<cuda::VUnplacedVolume> const /* gpu_ptr */) const override
++  {
++    assert(0 && "Attempted to copy unsupported ROOT volume to GPU.");
++    return DevicePtr<cuda::VUnplacedVolume>(nullptr);
++  }
++#endif
+ };
+ 
+ } // End namespace tgeo2vecgeom
+EOP
+
+cmake ./src -DCMAKE_INSTALL_PREFIX=$INSTALLROOT          \
       -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE:-RelWithDebInfo} \
       -DCMAKE_PREFIX_PATH="$VECGEOM_ROOT;$ROOT_ROOT"       \
       -DCMAKE_INSTALL_LIBDIR=lib                           \
