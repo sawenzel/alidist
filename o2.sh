@@ -1,6 +1,6 @@
 package: O2
 version: "%(tag_basename)s"
-tag: "dev-20261116-g4hepem2"
+tag: "adept-o2sim"
 requires:
   - abseil
   - arrow
